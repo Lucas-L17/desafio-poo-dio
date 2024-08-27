@@ -1,12 +1,17 @@
-import br.com.dio.desafio.dominio.Bootcamp;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Dev;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println();
+        System.out.println();
+
+        Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
+        Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
+
         Curso curso1 = new Curso();
         curso1.setTitulo("curso java");
         curso1.setDescricao("descrição curso java");
@@ -22,9 +27,6 @@ public class Main {
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
 
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
 
         Bootcamp bootcamp = new Bootcamp();
         bootcamp.setNome("Bootcamp Java Developer");
@@ -36,26 +38,48 @@ public class Main {
         Dev devCamila = new Dev();
         devCamila.setNome("Camila");
         devCamila.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
+        conteudosInscritos = devCamila.getConteudosInscritos();
+        System.out.println("Conteúdos Inscritos Camila:");
+        conteudosInscritos.forEach(System.out::println);
+        System.out.println();
+        System.out.println("--- Progredindo ---");
         devCamila.progredir();
+        System.out.println("--- Progredindo ---");
         devCamila.progredir();
-        System.out.println("-");
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-        System.out.println("Conteúdos Concluídos Camila:" + devCamila.getConteudosConcluidos());
+        System.out.println();
+        conteudosInscritos = devCamila.getConteudosInscritos();
+        System.out.println("Conteúdos Inscritos Camila:");
+        conteudosInscritos.forEach(System.out::println);
+        System.out.println();
+        conteudosConcluidos = devCamila.getConteudosConcluidos();
+        System.out.println("Conteúdos Concluídos Camila:");
+        conteudosConcluidos.forEach(System.out::println);
         System.out.println("XP:" + devCamila.calcularTotalXp());
 
-        System.out.println("-------");
+        System.out.println();
+        System.out.println("-----------------------------------");
+        System.out.println();
 
         Dev devJoao = new Dev();
         devJoao.setNome("Joao");
         devJoao.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
+        conteudosInscritos = devJoao.getConteudosInscritos();
+        System.out.println("Conteúdos Inscritos João:");
+        conteudosConcluidos.forEach(System.out::println);
+        System.out.println();
+        System.out.println("--- Progredindo ---");
         devJoao.progredir();
+        System.out.println("--- Progredindo ---");
         devJoao.progredir();
+        System.out.println("--- Progredindo ---");
         devJoao.progredir();
-        System.out.println("-");
-        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
-        System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
+        conteudosInscritos = devJoao.getConteudosInscritos();
+        System.out.println("Conteúdos Inscritos João:");
+        conteudosInscritos.forEach(System.out::println);
+        System.out.println();
+        conteudosConcluidos = devJoao.getConteudosConcluidos();
+        System.out.println("Conteúdos Concluídos João:");
+        conteudosConcluidos.forEach(System.out::println);
         System.out.println("XP:" + devJoao.calcularTotalXp());
 
     }
